@@ -1,0 +1,52 @@
+<header class="admin-header auth">
+    <div class="admin-header__container container--full">
+
+        <div class="admin-nav">
+            <div class="admin-nav__container container__full">
+                <div class="logo-wrapper">
+                    <a href="{{ path_for('dash') }}" class="logo">
+                        <img src="/assets/img/logo.png" alt="FL3X-LIFE.com" draggable="false">
+                    </a>
+                </div>
+
+                <div class="admin-menu">
+                    <ul class="nav__navbar is--active">
+                        <li class="{% if current_path == path_for('dash') %}is--active{% endif %}">
+                            <a href="{{ path_for('dash') }}">Dashboard</a>
+                        </li>
+                        <li class="{% if 'hero-slides' in current_path %}is--active{% endif %}">
+                            <a href="{{ path_for('hero.index') }}">Hero Slides</a>
+                        </li>
+                        <li class="{% if 'instructors' in current_path %}is--active{% endif %}">
+                            <a href="{{ path_for('instructors.index') }}">Instructors</a>
+                        </li>
+                        <li class="{% if 'schedules' in current_path %}is--active{% endif %}">
+                            <a href="{{ path_for('schedules.index') }}">Schedules</a>
+                        </li>
+                        <li class="{% if 'testimonies' in current_path %}is--active{% endif %}">
+                            <a href="{{ path_for('testimonies.index') }}">Testimonies</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="user">
+            <div class="user__container container--full">
+                {% include 'partials/admin-hamburger.twig' %}
+                <ul>
+                    <li class="dropdown">
+                        <a href="{{ path_for('users.view', { 'id': auth.user.id }) }}">Hey, {{ auth.user.name }}!</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ path_for('users.edit', { 'id': auth.user.id }) }}">Edit Profile</a></li>
+                            <li><a href="{{ path_for('logout') }}">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="img-container">
+                    <img src="/assets/uploads/avatars/{{ auth.user.id }}/avatar.jpg">
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

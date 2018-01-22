@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Viewport Meta -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Styles -->
+
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/css/app.css">
+
+    <!-- Mobile Theme Colour -->
+
+    <meta name="theme-color" content="#f52929">
+
+    <!-- Title and Description -->
+
+    <title>{% block title %}{% endblock %} | FL3X LIFE</title>
+    <meta name="description" content="{% block description %}Built on blood, sweat, tears, and triumph.{% endblock %}">
+    <meta name="keywords" content="fl3xlife, fl3x life, fl3x-life, fl3x, gym, gym membership, windsor, gym windsor, fitness classes, cycling classes, yoga classes, boxing classes, fitness, cycling, yoga, boxing, trainer, fl3x fitness">
+
+    <!-- Favicons -->
+
+    <link rel="icon" href="/assets/img/fav.jpg">
+    
+    <!-- Open Graph -->
+
+    <meta property="og:title" content="FL3X LIFE">
+    <meta property="og:description" content="Built on blood, sweat, tears, and triumph.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://fl3x-life.darkroast.co">
+    <meta property="og:site_name" content="FL3X LIFE">
+    <meta property="og:image" content="/assets/img/og.jpg">
+    
+
+    <!--[if lt IE 9]>
+     <script src="js/polyfill/html5-shiv.js"></script>
+  <![endif]-->
+
+
+</head>
+<body>
+    {% include 'partials/off-canvas.twig' %}
+    {% include 'partials/admin-off-canvas.twig' %}
+    {% include 'partials/flash.twig' %}
+    {% block loader %}{% endblock %}
+    <div class="{% block pageclass %}{% endblock %}" id="app">
+        <div class="content">
+            {% include 'partials/overlay.twig' %}
+            {% include 'partials/modal.twig' %}
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+
+    <script src="/assets/js/app.js"></script>
+    {% block schedules %}{% endblock %}
+
+    {# You make me wanna be stupid when we talk about Plato and you ask 'green or red'...
+        It's metaphysical Plato, not Fisher-Price Play-Doh. #}
+</body>
+</html>

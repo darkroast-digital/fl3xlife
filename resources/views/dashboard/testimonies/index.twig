@@ -1,0 +1,44 @@
+{% extends 'layouts/app.twig' %}
+{% block pageclass %}auth{% endblock %}
+{% block title %}Testimonies{% endblock %}
+
+{% block content %}
+
+{% include 'dashboard/header.twig' %}
+
+<section class="testimonies index">
+    <div class="index__container container">
+        <div class="title-bar">
+            <h1>Testimonies</h1>
+            <a href="{{ path_for('testimonies.create') }}" class="button">Create New</a>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <td>Image</td>
+                    <td>Name</td>
+                    <td>Role</td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for testimony in testimonies %}
+                    <tr>
+                        <td>
+                            <div class="img-container">
+                                <img src="/assets/uploads/testimonies/{{ testimony.id }}/featured.png" draggable="false">
+                            </div>
+                        </td>
+                        <td><a href="{{ path_for('testimonies.view', { 'slug': testimony.id }) }}">{{ testimony.name }}</a></td>
+                        <td>{{ testimony.role }}</td>
+                        <td><a href="{{ path_for('testimonies.edit', { 'slug': testimony.id }) }}"><i class="fa fa-pencil" aria-hidden="true"></i></a> <a href="{{ path_for('testimonies.delete', { 'slug': testimony.id }) }}"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+</section>
+
+{% endblock %}

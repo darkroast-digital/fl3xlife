@@ -1,0 +1,43 @@
+{% extends 'layouts/app.twig' %}
+{% block pageclass %}auth{% endblock %}
+{% block title %}{{ instructor.name }} - Edit Instructor{% endblock %}
+
+{% block content %}
+
+{% include 'dashboard/header.twig' %}
+
+<section class="instructors edit">
+    <div class="edit__container container">
+        <div class="title-bar">
+            <h1>Edit Instructor: {{ instructor.name }}</h1>
+            <a href="{{ path_for('instructors.view', { 'id': instructor.id }) }}" class="button">View Instructor</a>
+        </div>
+
+        <form action="{{ path_for('instructors.update', { 'id': instructor.id }) }}" method="post" class="form edit-instructor-form" enctype="multipart/form-data">
+            <div class="instructor-details container--full">
+                <div class="column-9 body">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="name" value="{{ instructor.name }}" required>
+                    <label for="title">Title <small>max length 60 characters</small></label>
+                    <input type="text" name="title" id="title" value="{{ instructor.title }}" maxlength="60" required>
+                    <label for="facebook">Facebook</label>
+                    <input type="text" name="facebook" id="facebook" value="{{ instructor.facebook }}">
+                    <label for="twitter">Twitter</label>
+                    <input type="text" name="twitter" id="twitter" value="{{ instructor.twitter }}">
+                    <label for="instagram">Instagram</label>
+                    <input type="text" name="instagram" id="instagram" value="{{ instructor.instagram }}">
+                </div>
+
+                <div class="column-3 details">
+                    <div class="image">
+                        <label class="featured-image image-upload">Change Featured Image<input type="file" name="featured"> {% if featured is null %}<span>Set Featured Image</span>{% endif %}<img src="{% if featured is not null %}{{ featured }}{% endif %}" draggable="false" class="image-preview" {% if featured is not null %}style="display: block"{% endif %}></label>
+                    </div>
+                    <button class="button submit">Save Instructor</button>
+                </div>
+            </div>
+        </form>
+        
+    </div>
+</section>
+
+{% endblock %}

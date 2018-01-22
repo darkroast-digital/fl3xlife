@@ -1,0 +1,294 @@
+{% extends 'layouts/app.twig' %}
+{% block title %}Home{% endblock %}
+{% block description %}{% endblock %}
+{% block pageclass %}home{% endblock %}
+
+{% block loader %}
+    <div class="loading-page is--loading">
+        <div class="loader">Loading...</div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    
+<header class="header">
+    <div class="header__container container">
+        {% include 'partials/nav.twig' %}
+    </div>
+</header>
+
+<section class="hero">
+    <div class="hero__container container">
+        <div class="hero-carousel">
+            {% for slide in slides %}
+                <div class="slide">
+                    <div class="column-6 image-container">
+                        <img src="/assets/uploads/hero-slides/{{ slide.id }}/featured.png" draggable="false">
+                    </div>
+                    <div class="column-6 text-container">
+                        <h1>{{ slide.heading }}</h1>
+                        <h2>{{ slide.subtitle }}</h2>
+                        <p>{{ slide.description }}</p>
+                        <a href="{{ slide.link }}" class="button" target="_blank">{{ slide.link_name }}</a>
+                        <img src="/assets/img/hr-center.png" draggable="false" class="rule">
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="about" id="shop">
+    <div class="cta container">
+        <div class="column-4 buy">
+            <img src="/assets/img/buy-supplements.jpg" draggable="false">
+            <a href="https://fl3xlife.com/collections/nutrition" target="_blank">Buy FL3X Supplements</a>
+        </div>
+        <div class="column-4 membership-special">
+            <p>$9.99 one month membership special</p>
+            <a href="https://fl3xfitness.antaris.ca/online_memberships_buy.php?mat_id=70" class="button" target="_blank">Book Now</a>
+        </div>
+        <div class="column-4 buy">
+            <img src="/assets/img/buy-clothing.jpg" draggable="false">
+            <a href="https://fl3xlife.com/collections/all" target="_blank">Buy FL3X Clothing</a>
+        </div>
+    </div>
+
+    <div class="about__container container">
+        <div class="wrapper">
+            <h2>About FL3X Fitness</h2>
+            <img src="/assets/img/hr-left.png" draggable="false" class="rule">
+            <p><span>FL3X Fitness Aims to Pump You Up!</span></p>
+            <p>Carlos Puckerin and Chris Brookbanks, who have each lost 100lbs, launched FL3X Fitness at 10700 Tecumseh Road East. We understand how difficult it can be to make a huge weight loss and fitness commitment, so we’re doing our best to make it easier for our members. We also provide nutritional and diet information so our members can make a commitment to eating healthy meal. We’ve created a strong membership experience for all of our members, no matter what your fitness level and goals are when you first walk through the doors. The club features a cardio are upfront, facing Tecumseh Road and a large weight room in the rear of the building.</p>
+        </div>
+        <iframe src="https://player.vimeo.com/video/249853891" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+    </div>
+</section>
+
+<section class="schedule" id="schedule">
+    <div class="schedule__container container">
+        <h2>Class Schedule</h2>
+        <img src="/assets/img/hr-center.png" draggable="false" class="rule">
+        <p class="byline">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis purus auctor, rutrum nulla nec, aliquam neque. Nulla auctor egestas enim, ac auctor ex elementum sed.</p>
+
+        <div class="classes__container container--full">
+            <div class="column-6">
+                <div class="container--full">
+                    <div class="column-7">
+                        <img src="/assets/img/hiit-training.jpg" draggable="false">
+                    </div>
+                    <div class="column-5">
+                        <h3>HIIT Training</h3>
+                        <p><span>Instructor: Carlos Puckerin</span></p>
+                        <p>Monday - 2pm, 7pm</p>
+                        <p>Wednesday - 2pm, 7pm</p>
+                        <p>Friday - 7pm</p>
+                        <a href="/assets/uploads/schedules/{% for item in schedules %}{% if 'HIIT Training' in item.title %}{{ item.id }}/schedule.jpg{% endif %}{% endfor %}" class="button" target="_blank">View Schedule</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column-6">
+                <div class="container--full">
+                    <div class="column-7">
+                        <img src="/assets/img/reps-retirement.jpg" draggable="false">
+                    </div>
+                    <div class="column-5">
+                        <h3>Reps for Retirement</h3>
+                        <p><span>Instructor: Carlos Puckerin</span></p>
+                        <p>Tuesday - 10:30am</p>
+                        <p>Thursday - 10:30am</p>
+                        <a href="/assets/uploads/schedules/{% for item in schedules %}{% if 'Reps for Retirement' in item.title %}{{ item.id }}/schedule.jpg{% endif %}{% endfor %}" class="button" target="_blank">View Schedule</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column-6">
+                <div class="container--full">
+                    <div class="column-7">
+                        <img src="/assets/img/cycling.jpg" draggable="false">
+                    </div>
+                    <div class="column-5">
+                        <h3>Spin Class</h3>
+                        <p><span>Instructor: Carlos Puckerin</span></p>
+                        <p>Monday - 7am</p>
+                        <p>Wednesday - 7am</p>
+                        <a href="/assets/uploads/schedules/{% for item in schedules %}{% if 'Spin Class' in item.title %}{{ item.id }}/schedule.jpg{% endif %}{% endfor %}" class="button" target="_blank">View Schedule</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column-6">
+                <div class="container--full">
+                    <div class="column-7">
+                        <img src="/assets/img/yoga.jpg" draggable="false">
+                    </div>
+                    <div class="column-5">
+                        <h3>Yoga Class</h3>
+                        <p><span>Instructor: Carlos Puckerin</span></p>
+                        <p>Monday-Thursday - 7pm</p>
+                        <p>Saturday - 9am</p>
+                        <a href="/assets/uploads/schedules/{% for item in schedules %}{% if 'Yoga Class' in item.title %}{{ item.id }}/schedule.jpg{% endif %}{% endfor %}" class="button" target="_blank">View Schedule</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <a href="/assets/uploads/schedules/{% for item in schedules %}{% if 'Full Calendar' in item.title %}{{ item.id }}/schedule.jpg{% endif %}{% endfor %}" class="button" target="_blank">Full Calendar</a>
+    </div>
+</section>
+
+<section class="instructors" id="instructors">
+    <div class="instructors__container container">
+        <h2>Our Instructors</h2>
+        <img src="/assets/img/hr-center.png" draggable="false" class="rule">
+        <p class="byline">Our instructors are experienced and certified in many aspects of health and fitness. From weight loss journeys of over 100lbs, to weight gain our trainers have experienced it for themselves and have all gone through a transformation. Check out each trainer's individual profile by clicking on the pictures below.</p>
+        <div class="trainer__container container--full">
+            {% for instructor in instructors %}
+                <div class="trainer column-3">
+                    <div class="img-container">
+                        <img src="/assets/uploads/instructors/{{ instructor.id }}/featured.jpg" draggable="false">
+                    </div>
+                    <div class="details-container">
+                        <h4>{{ instructor.name }}</h4>
+                        <p>{{ instructor.title }}</p>
+                        <div class="socials">
+                            <a href="{{ instructor.twitter }}" target="_blank"><i class="fa fa-twitter"></i></a>
+                            <a href="{{ instructor.facebook }}" target="_blank"><i class="fa fa-facebook"></i></a>
+                            <a href="{{ instructor.instagram }}" target="_blank"><i class="fa fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="memberships" id="memberships">
+    <div class="memberships__container container">
+        <h2>Memberships</h2>
+        <img src="/assets/img/hr-center.png" draggable="false" class="rule">
+        <p class="byline">We offer a variety of different memberships to fit each person’s needs. We also have more options available on site.</p>
+        <div class="plans__container container--full">
+            <div class="plan column-4">
+                <div class="img-container">
+                    <img src="/assets/img/basic-plan.jpg" draggable="false">
+                </div>
+                <div class="price">
+                    <p><span>$29.99</span></p>
+                    <p>Per Month</p>
+                </div>
+                <div class="details">
+                    <h3>Bronze Plan</h3>
+                    <p>Gym Access</p>
+                    <a href="https://fl3xfitness.antaris.ca/online_memberships_buy.php?mat_id=34" class="button" target="_blank">Book Now</a>
+                </div>
+            </div>
+
+            <div class="plan column-4 middle">
+                <div class="img-container">
+                    <img src="/assets/img/professional-plan.jpg" draggable="false">
+                </div>
+                <div class="price">
+                    <p><span>$49.99</span></p>
+                    <p>Per Month</p>
+                </div>
+                <div class="details">
+                    <h3>Gold Plan</h3>
+                    <p>Gym Access</p>
+                    <p>Unlimited Guest Passes</p>
+                    <p>Unlimited Classes</p>
+                    <p>Unlimited Child Watch</p>
+                    <a href="https://fl3xfitness.antaris.ca/online_memberships_buy.php?mat_id=40" class="button" target="_blank">Book Now</a>
+                </div>
+            </div>
+
+            <div class="plan column-4">
+                <div class="img-container">
+                    <img src="/assets/img/middle-plan.jpg" draggable="false">
+                </div>
+                <div class="price">
+                    <p><span>$39.99</span></p>
+                    <p>Per Month</p>
+                </div>
+                <div class="details">
+                    <h3>Silver Plan</h3>
+                    <p>Gym Access</p>
+                    <p>Unlimited Guest Passes</p>
+                    <a href="https://fl3xfitness.antaris.ca/online_memberships_buy.php?mat_id=38" class="button" target="_blank">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="stories" id="stories">
+    <div class="stories__container container">
+        <h2>Success Stories</h2>
+        <img src="/assets/img/hr-left.png" draggable="false" class="rule">
+
+        <div class="testimonies__container container--full">
+            {% for testimony in testimonies %}
+                <div class="testimony">
+                    <div class="container--full">
+                        <div class="column-7">
+                            <p><span>{{ testimony.quote }}</span></p>
+                            <p>{{ testimony.description }}</p>
+                            <div class="author">
+                                <h4>{{ testimony.name }}</h4>
+                                <p>{{ testimony.role }} at FL3X Fitness</p>
+                            </div>
+                        </div>
+                        <div class="column-5">
+                            <img src="" alt="">
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="footer__container container">
+        <div class="top container--full">
+            <div class="column-3 about-socials">
+                <div class="text">
+                    <h3>About FL3X Fitness</h3>
+                    <p>We understand how difficult it can be to make a huge weight loss and fitness commitment, so we’re doing our best to make it easier for our members. We also provide nutritional and diet information so our members can make a commitment to eating healthy meal.</p>
+                </div>
+                <div class="socials">
+                    <a href="https://twitter.com/mr_c3o_" target="_blank"><i class="fa fa-twitter"></i></a>
+                    <a href="" target="_blank"><i class="fa fa-facebook"></i></a>
+                    <a href="https://instagram.com/Mr_C3O" target="_blank"><i class="fa fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="column-3 hours">
+                <h3>Gym Hours</h3>
+                <p>Monday to Tuesday: 8:00 - 19:00<br/>
+                    Wednesday to Thursday: 8:00 - 19:00<br/>
+                    Friday to Saturday: 8:00 - 19:00<br/>
+                    Sunday: 8:00 - 19:00</p>
+                <p><em>Closed on public holidays</em></p>
+            </div>
+            <div class="column-3 instagram">
+                <h3>Instagram Gallery</h3>
+                <div id="instafeed"></div>
+            </div>
+            <div class="column-3 contact">
+                <h3>Contact Us</h3>
+                <p>Email: <a href="mailto:fl3xlifefitness@gmail.com">fl3xlifefitness@gmail.com</a></p>
+                <p>Phone: 519.979.6622</p>
+                <p>Fax:</p>
+                <p>Address: 10700 Tecumseh Rd East, Windsor, ON</p>
+                <button class="modal__trigger button">Send an email</button>
+            </div>
+        </div>
+
+        <div class="bottom">
+            <p>&copy; <span>FL3X FITNESS</span> 2017. All Rights Reserved. Designed by DarkRoast Digital.</p>
+        </div>
+    </div>
+</footer>
+    
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'layouts/app.twig' %}
+{% block pageclass %}auth{% endblock %}
+{% block title %}View Profile{% endblock %}
+
+{% block content %}
+
+{% include 'dashboard/header.twig' %}
+
+<section class="users view">
+    <div class="view__container container">
+        <div class="title-bar">
+            <h1>View Profile</h1>
+            <a href="{{ path_for('users.edit', { 'id': user.id }) }}" class="button">Edit Profile</a>
+        </div>
+        <div class="user-details container--full">
+            <div class="column-6 overview">
+                <div class="img-container">
+                    <img src="{{ avatar }}" draggable="false">
+                </div>
+                <h2>{{ user.name }}</h2>
+            </div>
+            <div class="column-6">
+                <div class="detail">
+                    <h3>Email:</h3>
+                    <p>{{ user.email }}</p>
+                </div>
+                <div class="detail">
+                    <h3>Role:</h3>
+                    <p>{{ user.role }}</p>
+                </div>
+                <div class="detail">
+                    <h3>Last Active:</h3>
+                    <p>{{ user.updated_at|date("d/m/Y") }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

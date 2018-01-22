@@ -1,0 +1,19 @@
+<nav class="nav">
+    <div class="nav__container container--full">
+        <div class="logo-wrapper">
+            <a href="{{ path_for('home') }}" class="nav__brand"><img src="/assets/img/logo.png" alt="FL3X-LIFE.com" draggable="false"></a>
+        </div>
+        <div class="menu">
+            <ul class="nav__navbar is--active">
+                <li><a href="{{ path_for('home') }}">Home</a></li>
+                <li><a href="#shop">Shop</a></li>
+                <li><a href="#schedule">Schedule</a></li>
+                <li><a href="#instructors">Instructors</a></li>
+                <li><a href="#memberships">Memberships</a></li>
+                <li><a href="#stories">Success Stories</a></li>
+                <li><button class="modal__trigger">Contact</button></li>
+            </ul>
+        </div>
+         {% include 'partials/hamburger.twig' %}
+    </div>
+</nav>

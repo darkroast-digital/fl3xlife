@@ -1,0 +1,5 @@
+<div class="paginate__container">
+    {% if tickets.nextPageUrl or tickets.previousPageUrl%}
+    <div><a href="{{ tickets.previousPageUrl }}">Prev Page</a> / <a href="{{ tickets.nextPageUrl }}">Next Page</a></div>
+    {% endif %}
+</div>

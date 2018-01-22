@@ -1,0 +1,39 @@
+{% extends 'layouts/app.twig' %}
+{% block pageclass %}auth{% endblock %}
+{% block title %}Edit Profile{% endblock %}
+
+{% block content %}
+
+{% include 'dashboard/header.twig' %}
+
+<section class="users edit">
+    <div class="edit__container container">
+        <div class="title-bar">
+            <h1>Edit Profile</h1>
+            <a href="{{ path_for('users.view', { 'id': user.id }) }}" class="button">View Profile</a>
+        </div>
+
+        <form action="{{ path_for('users.update', { 'id': user.id }) }}" method="post" class="form edit-user-form" enctype="multipart/form-data">
+            <div class="user-details container--full">
+                <div class="column-9 body">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="name" value="{{ user.name }}" required>
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" value="{{ user.email }}" required>
+                    <label for="password">New Password <small>optional</small></label>
+                    <input type="password" name="password" id="password" placeholder="New Password">
+                </div>
+
+                <div class="column-3 details">
+                    <div class="image">
+                        <label class="featured-image image-upload">Change Featured Image<input type="file" name="featured"> {% if featured is null %}<span>Set Featured Image</span>{% endif %}<img src="{% if featured is not null %}{{ featured }}{% endif %}" draggable="false" class="image-preview" {% if featured is not null %}style="display: block"{% endif %}></label>
+                    </div>
+                    <button class="button submit">Save Profile</button>
+                </div>
+            </div>
+        </form>
+        
+    </div>
+</section>
+
+{% endblock %}

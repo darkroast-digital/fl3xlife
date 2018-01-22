@@ -1,0 +1,45 @@
+{% extends 'layouts/app.twig' %}
+{% block pageclass %}auth{% endblock %}
+{% block title %}{{ testimony.name }} - View Testimony{% endblock %}
+
+{% block content %}
+
+{% include 'dashboard/header.twig' %}
+
+<section class="testimonies view">
+    <div class="view__container container">
+        <div class="title-bar">
+            <h1>Testimony: {{ testimony.name }}</h1>
+            <a href="{{ path_for('testimonies.edit', { 'slug': testimony.id }) }}" class="button">Edit Testimony</a>
+        </div>
+        <div class="testimony-details container--full">
+            <div class="column-6">
+                <h3>Featured Image</h3>
+                <div class="img-container">
+                    <img src="{{ featured }}" draggable="false">
+                </div>
+            </div>
+            <div class="column-6">
+                <div class="detail">
+                    <h3>Name:</h3>
+                    <p>{{ testimony.name }}</p>
+                </div>
+
+                <div class="detail">
+                    <h3>Title:</h3>
+                    <p>{{ testimony.role }}</p>
+                </div>
+                <div class="detail">
+                    <h3>Quote:</h3>
+                    <p>{{ testimony.quote }}</p>
+                </div>
+                <div class="detail">
+                    <h3>Description:</h3>
+                    <p>{{ testimony.description }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

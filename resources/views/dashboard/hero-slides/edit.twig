@@ -1,0 +1,52 @@
+{% extends 'layouts/app.twig' %}
+{% block pageclass %}auth{% endblock %}
+{% block title %}{{ slide.heading }} - Edit Slide{% endblock %}
+
+{% block content %}
+
+{% include 'dashboard/header.twig' %}
+
+<section class="hero-slides edit">
+    <div class="edit__container container">
+        <div class="title-bar">
+            <h1>Edit Slide #{{ slide.id }}: {{ slide.heading }}</h1>
+            <a href="{{ path_for('hero.view', { 'slug': slide.id }) }}" class="button">View Slide</a>
+        </div>
+
+        <form action="{{ path_for('hero.update', { 'slug': slide.id }) }}" method="post" class="form edit-slide-form" enctype="multipart/form-data">
+            <div class="slide-details container--full">
+                <div class="column-9 body">
+                    <label for="heading">Slide Heading <small>max length 20 chararacters</small></label>
+                    <input type="text" name="heading" id="heading" value="{{ slide.heading }}" maxlength="20" required>
+                    <label for="subtitle">Slide Subtitle <small>max length 40 characters</small></label>
+                    <input type="text" name="subtitle" id="subtitle" value="{{ slide.subtitle }}" maxlength="40" required>
+                    <label for="description">Slide Details <small>max length 200 characters</small></label>
+                    <textarea name="description" id="heroMde" maxlength="200">{{ slide.description }}</textarea>
+                </div>
+
+                <div class="column-3 details">
+                    <div class="button-details">
+                        <div class="field">
+                            <label for="link_name">Button Text:</label>
+                            <input type="text" name="link_name" id="link_name" value="{{ slide.link_name }}">
+                        </div>
+
+                        <div class="field">
+                            <label for="link">Button URL:</label>
+                            <input type="text" name="link" id="link" value="{{ slide.link }}">
+                        </div>
+
+                        <button class="button submit">Save Slide</button>
+                    </div>
+
+                    <div class="image">
+                        <label class="featured-image image-upload">Change Featured Image<input type="file" name="featured"> {% if featured is null %}<span>Set Featured Image</span>{% endif %}<img src="{% if featured is not null %}{{ featured }}{% endif %}" draggable="false" class="image-preview" {% if featured is not null %}style="display: block"{% endif %}></label>
+                    </div>
+                </div>
+            </div>
+        </form>
+        
+    </div>
+</section>
+
+{% endblock %}

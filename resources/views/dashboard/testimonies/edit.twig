@@ -1,0 +1,41 @@
+{% extends 'layouts/app.twig' %}
+{% block pageclass %}auth{% endblock %}
+{% block title %}{{ testimony.name }} - Edit Testimony{% endblock %}
+
+{% block content %}
+
+{% include 'dashboard/header.twig' %}
+
+<section class="testimonies edit">
+    <div class="edit__container container">
+        <div class="title-bar">
+            <h1>Edit Testimony: {{ testimony.name }}</h1>
+            <a href="{{ path_for('testimonies.view', { 'slug': testimony.id }) }}" class="button">View Testimony</a>
+        </div>
+
+        <form action="{{ path_for('testimonies.update', { 'slug': testimony.id }) }}" method="post" class="form edit-testimony-form" enctype="multipart/form-data">
+            <div class="testimony-details container--full">
+                <div class="column-9 body">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="name" value="{{ testimony.name }}" required>
+                    <label for="role">Role</label>
+                    <input type="text" name="role" id="role" value="{{ testimony.role }}" required>
+                    <label for="quote">Quote <small>displays red, italicized | max length 360 characters</small></label>
+                    <textarea name="quote" id="testQuote" maxlength="360">{{ testimony.quote }}</textarea>
+                    <label for="description">Description <small>max length 525 characters</small></label>
+                    <textarea name="description" id="testDescription" maxlength="525">{{ testimony.description }}</textarea>
+                </div>
+
+                <div class="column-3 details">
+                    <div class="image">
+                        <label class="image-upload">{% if featured is not null %}Change Featured Image{% endif %}<input type="file" name="featured"> {% if featured is null %}<span>Set Featured Image</span>{% endif %}<img src="{% if featured is not null %}{{ featured }}{% endif %}" draggable="false" class="image-preview" {% if featured is not null %}style="display: block"{% endif %}></label>
+                    </div>
+                    <button class="button submit">Save Testimony</button>
+                </div>
+            </div>
+        </form>
+        
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,203 @@
+/*
+|--------------------------------------------------------------------------
+| #TABS
+|--------------------------------------------------------------------------
+|
+| Add .tabs--left for inline tabs with nav to left
+| Add .tabs--right for inline tabs with nav to right
+|
+*/
+
+
+
+.tabs {
+
+
+
+    &__nav {
+        display: flex;
+        list-style-type: none;
+        width: 100%;
+        padding-left:150px;
+        position: relative;
+        background-color: $secondary;
+        color: #fff;
+
+        @include breakpoint(md) {
+            display: inline-block;
+            padding-left:0;
+        }
+
+        &:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 1px;
+            width: 100%;
+            background: color(grey-dark);
+            transition: all .15s ease(inOutQuad);
+        }
+
+        li {
+            min-width: 100px;
+            cursor: pointer;
+            position: relative;
+            padding: .5rem 30px;
+            text-align: center;
+            font-size: 1.5em;
+            font-weight:900;
+            border-right:1px solid $grey-dark;
+            padding: 20px 50px;
+
+            @include breakpoint(md) {
+                border-bottom:1px solid $grey-dark;
+            }
+
+            &:last-child {
+                border-right:none;
+            }
+            
+            &:after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                z-index: z(low);
+                width: 100%;
+                transition: all .15s ease(inOutQuad);
+            }
+
+            &.is--active, &:hover {
+
+                color:$primary;
+                transition:0.5s;
+            }
+        }
+    }
+
+    &--right {
+        display: flex;
+
+        .tabs__nav {
+            display: block;
+            width: 100px;
+            order: 1;
+
+            &:after {
+                height: 100%;
+                width: 1px;
+                right: auto;
+                left: 0;
+            }
+
+            li {
+
+                &:after {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    left: 0;
+                    bottom: auto;
+                    z-index: z(low);
+                    height: 100%;
+                    width: 2px;
+                    transition: all .15s ease(inOutQuad);
+                }
+
+                &.is--active, &:hover  {
+
+                    color:$primary;
+                    transition: all .15s ease(inOutQuad);
+                }
+            }
+        }
+    }
+
+    &--left {
+        display: flex;
+
+        .tabs__nav {
+            display: block;
+            width: 100px;
+
+            &:after {
+                height: 100%;
+                width: 1px;
+                right: 0;
+                left: auto;
+            }
+
+            li {
+
+                &:after {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    left: auto;
+                    bottom: auto;
+                    z-index: z(low);
+                    height: 100%;
+                    width: 2px;
+                    transition: all .15s ease(inOutQuad);
+                }
+
+                &.is--active, &:hover  {
+
+                    color:$primary;
+                    transition: all .15s ease(inOutQuad);
+                }
+            }
+        }
+    }
+
+    &__body {
+        position: relative;
+    }
+
+    &__content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        height:100%;
+        width:100%;
+        pointer-events: none;
+        visibility: hidden;
+        transition: all 0 ease(inOutQuad) 0;
+        background-color: $secondary;
+
+        .container {
+            margin-top:0;
+            max-width:85%;
+        }
+
+        h6 {
+            color:#fff;
+            font-size:1.5em;
+            font-weight:800;
+        }
+
+        p {
+            color:$grey;
+        }
+
+        img {
+            max-width: 375px;
+            height: auto;
+            padding: 10px;
+            vertical-align:top;
+            display: inline-block;
+            float:left;
+        }
+
+        &.is--active {
+            position: relative;
+            opacity: 1;
+            pointer-events: all;
+            visibility: visible;
+        }
+    }
+}

@@ -1,0 +1,65 @@
+{% extends 'layouts/app.twig' %}
+{% block pageclass %}auth{% endblock %}
+{% block title %}{{ slide.heading }} - View Slide{% endblock %}
+
+{% block content %}
+
+{% include 'dashboard/header.twig' %}
+
+<section class="hero-slides view">
+    <div class="view__container container">
+        <div class="title-bar">
+            <h1>Slide #{{ slide.id }}: {{ slide.heading }}</h1>
+            <a href="{{ path_for('hero.edit', { 'slug': slide.id }) }}" class="button">Edit Slide</a>
+        </div>
+        <div class="slide-details container--full">
+            <div class="column-6">
+                <div class="img-container">
+                    <img src="{{ featured }}" draggable="false">
+                </div>
+            </div>
+            <div class="column-6">
+                <div class="detail">
+                    <h3>Heading:</h3>
+                    <p>{{ slide.heading }}</p>
+                </div>
+
+                <div class="detail">
+                    <h3>Subtitle:</h3>
+                    <p>{{ slide.subtitle }}</p>
+                </div>
+
+                <div class="detail">
+                    <h3>Description:</h3>
+                    <p>{{ slide.description }}</p>
+                </div>
+
+                <div class="detail">
+                    <h3>Button Text:</h3>
+                    <p>{{ slide.link_name }}</p>
+                </div>
+
+                <div class="detail">
+                    <h3>Link:</h3>
+                    <p>{{ slide.link }}</p>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="preview-title">Slide Preview</h2>
+        <div class="slide container--full">
+            <div class="column-6 image-container">
+                <img src="/assets/uploads/hero-slides/{{ slide.id }}/featured.png" draggable="false">
+            </div>
+            <div class="column-6 text-container">
+                <h1>{{ slide.heading }}</h1>
+                <h2>{{ slide.subtitle }}</h2>
+                <p>{{ slide.description }}</p>
+                <a href="{{ slide.link }}" class="button" target="_blank">{{ slide.link_name }}</a>
+                <img src="/assets/img/hr-center.png" draggable="false" class="rule">
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

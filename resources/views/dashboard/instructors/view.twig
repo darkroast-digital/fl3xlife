@@ -1,0 +1,51 @@
+{% extends 'layouts/app.twig' %}
+{% block pageclass %}auth{% endblock %}
+{% block title %}{{ instructor.name }} - View Instructor{% endblock %}
+
+{% block content %}
+
+{% include 'dashboard/header.twig' %}
+
+<section class="instructors view">
+    <div class="view__container container">
+        <div class="title-bar">
+            <h1>Instructor: {{ instructor.name }}</h1>
+            <a href="{{ path_for('instructors.edit', { 'id': instructor.id }) }}" class="button">Edit Instructor</a>
+        </div>
+        <div class="instructor-details container--full">
+            <div class="column-6">
+                <div class="img-container">
+                    <img src="{{ featured }}" draggable="false">
+                </div>
+            </div>
+            <div class="column-6">
+                <div class="detail">
+                    <h3>Name:</h3>
+                    <p>{{ instructor.name }}</p>
+                </div>
+
+                <div class="detail">
+                    <h3>Title:</h3>
+                    <p>{{ instructor.title }}</p>
+                </div>
+
+                <div class="detail">
+                    <h3>Facebook:</h3>
+                    <p><a href="{{ instructor.facebook }}" target="_blank">{{ instructor.facebook }}</a></p>
+                </div>
+
+                <div class="detail">
+                    <h3>Twitter:</h3>
+                    <p><a href="{{ instructor.twitter }}" target="_blank">{{ instructor.twitter }}</a></p>
+                </div>
+
+                <div class="detail">
+                    <h3>Instagram:</h3>
+                    <p><a href="{{ instructor.instagram }}" target="_blank">{{ instructor.instagram }}</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

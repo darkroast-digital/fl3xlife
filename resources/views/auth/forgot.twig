@@ -1,0 +1,33 @@
+{% extends 'layouts/app.twig' %}
+{% block pageclass %}auth{% endblock %}
+{% block title %}Recover Password{% endblock %}
+
+{% block content %}
+
+<section class="forgot">
+    <div class="forgot__container container">
+        <div class="logo__container column-5">
+            <a href="{{ path_for('home') }}">
+                <img src="/assets/img/logo.png" alt="FL3X-LIFE.com" draggable="false">
+            </a>
+        </div>
+
+        <div class="form__container column-7">
+            <h1>Recover Password</h1>
+            <form action="{{ path_for('forgot') }}" method="post" class="form forgot-form">
+                <div class="field {{ errors.email ? 'is-error' : '' }}">
+                    <label for="email">Email</label>
+                    <input type="text" name="email" value="{{ old.email }}">
+                    {% if errors.email %}
+                        <span><small>{{ errors.email | first }}</small></span>
+                    {% endif %}
+                </div>
+                <button class="button submit">Submit</button>
+            </form>
+
+            <a href="{{ path_for('login') }}">Login</a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

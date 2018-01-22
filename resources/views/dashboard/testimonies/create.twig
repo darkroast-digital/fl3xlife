@@ -1,0 +1,40 @@
+{% extends 'layouts/app.twig' %}
+{% block pageclass %}auth{% endblock %}
+{% block title %}Create Testimony{% endblock %}
+
+{% block content %}
+
+{% include 'dashboard/header.twig' %}
+
+<section class="testimonies create">
+    <div class="create__container container">
+        <div class="title-bar">
+            <h1>Create Testimony</h1>
+        </div>
+
+        <form action="{{ path_for('testimonies.create') }}" method="post" class="form create-testimony-form" enctype="multipart/form-data">
+            <div class="testimony-details container--full">
+                <div class="column-9 body">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="name" placeholder="John Doe" required>
+                    <label for="role">Role</label>
+                    <input type="text" name="role" id="role" value="Student" placeholder="Student, Trainer" required>
+                    <label for="quote">Quote <small>displays red, italicized | max length 360 characters</small></label>
+                    <textarea name="quote" id="testQuote" maxlength="360"></textarea>
+                    <label for="description">Description <small>max length 525 characters</small></label>
+                    <textarea name="description" id="testDescription" maxlength="525"></textarea>
+                </div>
+
+                <div class="column-3 details">
+                    <div class="image">
+                        <label class="featured-image image-upload"><input type="file" name="featured"><span>Set Featured Image</span><img src="" draggable="false" class="image-preview"></label>
+                    </div>
+                    <button class="button submit">Save Testimony</button>
+                </div>
+            </div>
+        </form>
+        
+    </div>
+</section>
+
+{% endblock %}

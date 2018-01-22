@@ -1,0 +1,106 @@
+/*
+|--------------------------------------------------------------------------
+| #SCHEDULES
+|--------------------------------------------------------------------------
+*/
+
+.auth {
+
+    .schedules {
+        background:rgba($secondary, .3);
+        min-height:90vh;
+
+        &.index {
+            
+            .index__container {
+                padding-bottom:4rem;
+
+                @media screen and (max-width:32em) {
+                    padding-bottom:2rem;
+                }
+                
+                .title-bar {
+                    padding-top:4rem;
+                    margin-bottom:2rem;
+                    display:flex;
+                    justify-content:space-between;
+                    width:100%;
+                    align-items:baseline;
+
+                    @media screen and (max-width:32em) {
+                        padding-top:2rem;
+                    }
+                    
+                    h1 {
+                        font-size:2rem;
+                        font-weight:900;
+                        text-transform:uppercase;
+                        margin-bottom:0;
+
+                        @media screen and (max-width:48em) {
+                            font-size:1.75rem;
+                        }
+
+                        @media screen and (max-width:32em) {
+                            font-size:1.5rem;
+                        }
+                    }
+                }
+
+                table {
+                    background-color:white;
+                    border:1px solid rgba($secondary, .5);
+
+                    thead {
+                        
+                        tr {
+
+                            td {
+                                padding:1rem;
+                                font-weight:600;
+
+                                &:first-of-type {
+                                    padding-left:2rem;
+                                }
+
+                                &:last-of-type {
+                                    padding-right:2rem;
+                                }
+                            }
+                        }
+                    }
+
+                    tbody {
+                        
+                        tr {
+
+                            td {
+                                padding:1rem;
+
+                                &:first-of-type {
+                                    padding-left:2rem;
+                                }
+
+                                &:last-of-type {
+                                    padding-right:2rem;
+                                    text-align:right;
+                                }
+
+                                input {
+                                    display:none;
+                                }
+
+                                i {
+                                    cursor:pointer;
+                                    color:$primary;
+                                }
+                            }
+                        }
+                    }
+                }
+            
+            }
+        }
+    }
+    
+}

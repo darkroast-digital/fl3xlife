@@ -1,0 +1,71 @@
+{% extends 'layouts/app.twig' %}
+{% block pageclass %}auth{% endblock %}
+{% block title %}Schedules{% endblock %}
+
+{% block content %}
+
+{% include 'dashboard/header.twig' %}
+
+<section class="schedules index">
+    <div class="index__container container">
+        <div class="title-bar">
+            <h1>Schedules</h1>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <td>Class</td>
+                    <td>File</td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for schedule in schedules %}
+                    <tr>
+                        <td>{{ schedule.title }}</td>
+                        <td class="fileNames"><a href="/assets/uploads/schedules/{{ schedule.id }}/schedule.jpg" target="_blank">{{ schedule.file }}</a></td>
+                        <td>
+                            <form action="{{ path_for('schedules.update', { 'slug': schedule.id }) }}" method="post" class="form edit-schedule-form" enctype="multipart/form-data">
+                                <label class="schedule-files"><i class="fa fa-pencil" aria-hidden="true"></i><input type="file" name="schedule"></label>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+</section>
+
+{% endblock %}
+
+{% block schedules %}
+
+<script>
+    var newFiles;
+
+    $('input').change(function() {
+
+        newFiles = $(this).prop("files")[0];
+        var formData = new FormData();
+        formData.append("schedule", newFiles);
+
+        $.ajax({
+            type: 'post',
+            url: $(this).parent().parent().attr('action'),
+            data: formData,
+            processData: false,
+            contentType:false
+        })
+        .done(function (response) {
+            console.log('Success: ' + response);
+            location.reload();
+        })
+        .fail(function (data) {
+            console.log('Fail: ' + data);
+        });
+    });
+</script>
+
+{% endblock %}

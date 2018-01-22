@@ -1,0 +1,62 @@
+/*
+|--------------------------------------------------------------------------
+| #HAMBURGER
+|--------------------------------------------------------------------------
+*/
+
+
+
+.hamburger {
+    z-index: z(highest);
+    cursor: pointer;
+    display: none;
+
+    @media screen and (max-width:64em) {
+        display:block;
+    }
+
+    &.admin {
+        z-index:80;
+
+        span {
+            background:white;
+        }
+
+        @media screen and (max-width:64em) {
+            display:none;
+        }
+
+        @media screen and (max-width:48em) {
+            display:block;
+        }
+    }
+
+    span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin-bottom: 4px;
+        background: color(primary);
+        transition: all .3s ease(inOutQuint);
+    }
+
+    &.is--open {
+
+        span {
+            
+            &:first-of-type {
+                transform: rotate(45deg) translateY(13px);
+                background: color(error);
+            }
+
+            &:nth-of-type(2) {
+                opacity: 0;
+            }
+
+            &:last-of-type {
+                transform: rotate(-45deg) translateY(-13px);
+                background: color(error);
+            }
+        }
+    }
+}

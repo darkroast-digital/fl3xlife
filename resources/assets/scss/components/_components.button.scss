@@ -1,0 +1,81 @@
+/*
+|--------------------------------------------------------------------------
+| #BUTTON
+|--------------------------------------------------------------------------
+*/
+
+%button,
+.button {
+    font-family:$font-two;
+    text-transform:uppercase;
+    font-weight:800;
+    font-style:italic;
+    position: relative;
+    display: inline-block;
+    padding: .4rem 1.5rem;
+    color: color(white);
+    background: color(primary);
+    border: solid 1px color(primary);
+    cursor: pointer;
+    outline: none;
+    transition: all .2s ease(inOutQuad);
+    border-radius:20px;
+    font-size:1.2rem;
+    text-align:center;
+
+    @if ($has-radius) {
+        border-radius: radius(small);
+    }
+
+    @if ($has-shadow) {
+        @include shadow(raised);
+    }
+
+    &:hover {
+        border: solid 1px color(white);
+        background: color(secondary);
+    }
+
+    &--outline {
+        background: transparent;
+        color: color(primary);
+        box-shadow: none;
+
+        &:hover {
+            color: color(white);
+        }
+    }
+
+    &--link {
+        background: transparent;
+        color: color(primary);
+        border-color: transparent;
+        box-shadow: none;
+
+        &:hover {
+            border-color: transparent;
+            background: transparent;
+            color: darken(color(primary), 10%);
+        }
+    }
+}
+
+button {
+    @extend %button;
+}
+
+button[disabled] {
+    background: color(grey-light);
+    border: solid 1px color(grey-light);
+    color: color(grey);
+    box-shadow: none;
+    @extend %disabled;
+}
+
+.button-group {
+
+    button,
+    .button {
+        margin-right: .5rem;
+    }
+}

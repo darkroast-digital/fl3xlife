@@ -1,0 +1,30 @@
+{% extends 'layouts/app.twig' %}
+{% block pageclass %}auth{% endblock %}
+{% block title %}Login{% endblock %}
+
+{% block content %}
+
+<section class="login">
+    <div class="login__container container">
+        <div class="logo__container column-5">
+            <a href="{{ path_for('home') }}">
+                <img src="/assets/img/logo.png" alt="FL3X-LIFE.com" draggable="false">
+            </a>
+        </div>
+
+        <div class="form__container column-7">
+            <h1>Login</h1>
+            <form action="{{ path_for('login') }}" method="post" class="form login-form">
+                <label for="email">Email</label>
+                <input type="email" name="email" required>
+                <label for="password">Password</label>
+                <input type="password" name="password" required>
+                <button class="button submit">Log In</button>
+            </form>
+
+            <a href="{{ path_for('forgot') }}">Forgot Password?</a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'layouts/app.twig' %}
+{% block pageclass %}auth{% endblock %}
+{% block title %}Hero Slides{% endblock %}
+
+{% block content %}
+
+{% include 'dashboard/header.twig' %}
+
+<section class="hero-slides index">
+    <div class="index__container container">
+        <h1>Hero Slides</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <td>Order</td>
+                    <td>Image</td>
+                    <td>Heading</td>
+                    <td>Description</td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for slide in slides %}
+                    <tr>
+                        <td>{{ slide.id }}</td>
+                        <td>
+                            <div class="img-container">
+                                <img src="/assets/uploads/hero-slides/{{ slide.id }}/featured.png" draggable="false">
+                            </div>
+                        </td>
+                        <td><a href="{{ path_for('hero.view', { 'slug': slide.id }) }}">{{ slide.heading }}</a></td>
+                        <td>{{ slide.description|slice(0, 100) }}...</td>
+                        <td><a href="{{ path_for('hero.edit', { 'slug': slide.id }) }}"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+</section>
+
+{% endblock %}

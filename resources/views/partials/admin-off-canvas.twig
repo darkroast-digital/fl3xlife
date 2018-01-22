@@ -1,0 +1,13 @@
+<div class="admin-off-canvas">
+    <ul>
+        <li><a href="{{ path_for('dash') }}">Dashboard</a></li>
+        <li><a href="{{ path_for('hero.index') }}">Hero Slides</a></li>
+        <li><a href="{{ path_for('instructors.index') }}">Instructors</a></li>
+        <li><a href="{{ path_for('schedules.index') }}">Schedules</a></li>
+        <li><a href="{{ path_for('testimonies.index') }}">Testimonies</a></li>
+        <hr>
+        <li><a href="{{ path_for('users.view', { 'id': auth.user.id }) }}">View Profile</a></li>
+        <li><a href="{{ path_for('users.edit', { 'id': auth.user.id }) }}">Edit Profile</a></li>
+        <li><a href="{{ path_for('logout') }}">Logout</a></li>
+    </ul>
+</div>

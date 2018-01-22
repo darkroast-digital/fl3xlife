@@ -1,0 +1,42 @@
+{% extends 'layouts/app.twig' %}
+{% block pageclass %}auth{% endblock %}
+{% block title %}Create Instructor{% endblock %}
+
+{% block content %}
+
+{% include 'dashboard/header.twig' %}
+
+<section class="instructors create">
+    <div class="create__container container">
+        <div class="title-bar">
+            <h1>Create Instructor</h1>
+        </div>
+
+        <form action="{{ path_for('instructors.create') }}" method="post" class="form create-instructor-form" enctype="multipart/form-data">
+            <div class="instructor-details container--full">
+                <div class="column-9 body">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="name" placeholder="John Doe" required>
+                    <label for="title">Title <small>max length 60 characters</small></label>
+                    <input type="text" name="title" id="title" value="Master Trainer" maxlength="60" placeholder="Master Trainer" required>
+                    <label for="facebook">Facebook</label>
+                    <input type="text" name="facebook" id="facebook" placeholder="https://www.facebook.com/john.doe">
+                    <label for="twitter">Twitter</label>
+                    <input type="text" name="twitter" id="twitter" placeholder="https://www.twitter.com/john_doe">
+                    <label for="instagram">Instagram</label>
+                    <input type="text" name="instagram" id="instagram" placeholder="https://www.instagram.com/john_doe">
+                </div>
+
+                <div class="column-3 details">
+                    <div class="image">
+                        <label class="featured-image image-upload"><input type="file" name="featured"><span>Set Featured Image</span><img src="" draggable="false" class="image-preview"></label>
+                    </div>
+                    <button class="button submit">Save Instructor</button>
+                </div>
+            </div>
+        </form>
+        
+    </div>
+</section>
+
+{% endblock %}

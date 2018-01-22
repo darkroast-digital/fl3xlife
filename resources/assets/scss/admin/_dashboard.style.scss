@@ -1,0 +1,90 @@
+/*
+|--------------------------------------------------------------------------
+| #DASHBOARD
+|--------------------------------------------------------------------------
+*/
+
+.auth {
+
+    .dash {
+        background:rgba($secondary, .3);
+        min-height:90vh;
+
+        &__container {
+            flex-direction:column;
+
+            h1 {
+                padding-top:4rem;
+                margin-bottom:1rem;
+                font-size:2rem;
+                font-weight:900;
+                text-transform:uppercase;
+
+                @media screen and (max-width:32em) {
+                    padding-top:2rem;
+                }
+            }
+
+            h2 {
+                font-weight:600;
+            }
+
+            .options {
+                padding-bottom:4rem;
+                width:100%;
+
+                @media screen and (max-width:32em) {
+                    padding-bottom:2rem;
+                }
+
+                .cta {
+                    background-color:white;
+                    margin-bottom:1rem;
+                    border-radius:.5rem;
+                    border:5px solid rgba($secondary, .5);
+                    display:flex;
+                    flex-direction:column;
+                    align-items:center;
+                    justify-content:center;
+                    min-height:30vh;
+                    padding:4rem;
+
+                    @media screen and (max-width:32em) {
+                        padding:1rem;
+                    }
+
+                    &:hover {
+
+                        h3 {
+                            color:rgba($primary, .7);
+                        }
+
+                        svg {
+                            fill:rgba($primary, .7);
+                        }
+                    }
+
+                    h3 {
+                        text-align:center;
+                        font-weight:600;
+                        margin-top:1rem;
+                        color:rgba($secondary, .5);
+                        transition:all .2s ease;
+                    }
+
+                    svg {
+                        max-width:100px;
+                        fill:rgba($secondary, .5);
+                        transition:all .2s ease;
+                    }
+
+                    .button {
+                        font-size:1rem;
+                        border-radius:5px;
+                    }
+                }
+            }
+        }
+    }
+
+}
