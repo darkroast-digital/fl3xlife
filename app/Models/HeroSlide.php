@@ -13,5 +13,6 @@ class HeroSlide extends Model
         'description',
         'link_name',
         'link',
+        'button_display'
     ];
 }

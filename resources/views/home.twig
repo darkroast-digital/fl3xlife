@@ -29,7 +29,7 @@
                         <h1>{{ slide.heading }}</h1>
                         <h2>{{ slide.subtitle }}</h2>
                         <p>{{ slide.description }}</p>
-                        <a href="{{ slide.link }}" class="button" target="_blank">{{ slide.link_name }}</a>
+                        <a href="{{ slide.link }}" class="button {{ slide.button_display }}" target="_blank">{{ slide.link_name }}</a>
                         <img src="/assets/img/hr-center.png" draggable="false" class="rule">
                     </div>
                 </div>
@@ -59,7 +59,7 @@
             <h2>About FL3X Fitness</h2>
             <img src="/assets/img/hr-left.png" draggable="false" class="rule">
             <p><span>FL3X Fitness Aims to Pump You Up!</span></p>
-            <p>Carlos Puckerin and Chris Brookbanks, who have each lost 100lbs, launched FL3X Fitness at 10700 Tecumseh Road East. We understand how difficult it can be to make a huge weight loss and fitness commitment, so we’re doing our best to make it easier for our members. We also provide nutritional and diet information so our members can make a commitment to eating healthy meal. We’ve created a strong membership experience for all of our members, no matter what your fitness level and goals are when you first walk through the doors. The club features a cardio are upfront, facing Tecumseh Road and a large weight room in the rear of the building.</p>
+            <p>Carlos Puckerin and Chris Brookbanks, who have each lost 100lbs, launched FL3X Fitness at 10700 Tecumseh Road East. We understand how difficult it can be to make a huge weight loss and fitness commitment, so we’re doing our best to make it easier for our members. We also provide nutritional and diet information, so our members can make a commitment to eating healthy meal. We’ve created a strong membership experience for all of our members, no matter what your fitness level and goals are when you first walk through the doors. The club features a cardio are upfront, facing Tecumseh Road and a large weight room in the rear of the building.</p>
         </div>
         <iframe src="https://player.vimeo.com/video/249853891" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
     </div>
@@ -69,7 +69,7 @@
     <div class="schedule__container container">
         <h2>Class Schedule</h2>
         <img src="/assets/img/hr-center.png" draggable="false" class="rule">
-        <p class="byline">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis purus auctor, rutrum nulla nec, aliquam neque. Nulla auctor egestas enim, ac auctor ex elementum sed.</p>
+        <p class="byline">Our group classes are all taught by certified and experienced instructors who love the energy of bringing people who all want to better themselves together. Come try out a bootcamp class if you’re looking for motivation, drive, and someone to push you through a tough 60 minute workout. When you’re surrounded by people pushing themselves, you can’t quit!</p>
 
         <div class="classes__container container--full">
             <div class="column-6">
@@ -79,7 +79,7 @@
                     </div>
                     <div class="column-5">
                         <h3>HIIT Training</h3>
-                        <p><span>Instructor: Carlos Puckerin</span></p>
+                        <p><span>Instructors: Theo, Mark, Lauren</span></p>
                         <p>Monday - 2pm, 7pm</p>
                         <p>Wednesday - 2pm, 7pm</p>
                         <p>Friday - 7pm</p>
@@ -95,7 +95,7 @@
                     </div>
                     <div class="column-5">
                         <h3>Reps for Retirement</h3>
-                        <p><span>Instructor: Carlos Puckerin</span></p>
+                        <p><span>Instructor: Mark</span></p>
                         <p>Tuesday - 10:30am</p>
                         <p>Thursday - 10:30am</p>
                         <a href="/assets/uploads/schedules/{% for item in schedules %}{% if 'Reps for Retirement' in item.title %}{{ item.id }}/schedule.jpg{% endif %}{% endfor %}" class="button" target="_blank">View Schedule</a>
@@ -110,7 +110,7 @@
                     </div>
                     <div class="column-5">
                         <h3>Spin Class</h3>
-                        <p><span>Instructor: Carlos Puckerin</span></p>
+                        <p><span>Instructor: Holly</span></p>
                         <p>Monday - 7am</p>
                         <p>Wednesday - 7am</p>
                         <a href="/assets/uploads/schedules/{% for item in schedules %}{% if 'Spin Class' in item.title %}{{ item.id }}/schedule.jpg{% endif %}{% endfor %}" class="button" target="_blank">View Schedule</a>
@@ -125,7 +125,7 @@
                     </div>
                     <div class="column-5">
                         <h3>Yoga Class</h3>
-                        <p><span>Instructor: Carlos Puckerin</span></p>
+                        <p><span>Instructor: Jordan</span></p>
                         <p>Monday-Thursday - 7pm</p>
                         <p>Saturday - 9am</p>
                         <a href="/assets/uploads/schedules/{% for item in schedules %}{% if 'Yoga Class' in item.title %}{{ item.id }}/schedule.jpg{% endif %}{% endfor %}" class="button" target="_blank">View Schedule</a>
@@ -142,10 +142,10 @@
     <div class="instructors__container container">
         <h2>Our Instructors</h2>
         <img src="/assets/img/hr-center.png" draggable="false" class="rule">
-        <p class="byline">Our instructors are experienced and certified in many aspects of health and fitness. From weight loss journeys of over 100lbs, to weight gain our trainers have experienced it for themselves and have all gone through a transformation. Check out each trainer's individual profile by clicking on the pictures below.</p>
+        <p class="byline">Our instructors are experienced and certified in many aspects of health and fitness. From weight loss journeys of over 100lbs, to weight gain, our trainers have experienced it for themselves and have all gone through a transformation. Check out each trainer's individual profile by clicking on the pictures below.</p>
         <div class="trainer__container container--full">
             {% for instructor in instructors %}
-                <div class="trainer column-3">
+                <div class="trainer column-3 modal__trigger" data-modal="{{ instructor.id }}">
                     <div class="img-container">
                         <img src="/assets/uploads/instructors/{{ instructor.id }}/featured.jpg" draggable="false">
                     </div>
@@ -153,9 +153,15 @@
                         <h4>{{ instructor.name }}</h4>
                         <p>{{ instructor.title }}</p>
                         <div class="socials">
-                            <a href="{{ instructor.twitter }}" target="_blank"><i class="fa fa-twitter"></i></a>
-                            <a href="{{ instructor.facebook }}" target="_blank"><i class="fa fa-facebook"></i></a>
-                            <a href="{{ instructor.instagram }}" target="_blank"><i class="fa fa-instagram"></i></a>
+                            {% if instructor.twitter != NULL %}
+                                <a href="{{ instructor.twitter }}" target="_blank"><i class="fa fa-twitter"></i></a>
+                            {% endif %}
+                            {% if instructor.facebook != NULL %}
+                                <a href="{{ instructor.facebook }}" target="_blank"><i class="fa fa-facebook"></i></a>
+                            {% endif %}
+                            {% if instructor.instagram != NULL %}
+                                <a href="{{ instructor.instagram }}" target="_blank"><i class="fa fa-instagram"></i></a>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
@@ -281,7 +287,7 @@
                 <p>Phone: 519.979.6622</p>
                 <p>Fax:</p>
                 <p>Address: 10700 Tecumseh Rd East, Windsor, ON</p>
-                <button class="modal__trigger button">Send an email</button>
+                <button class="modal__trigger button" data-modal="contact">Send an email</button>
             </div>
         </div>
 

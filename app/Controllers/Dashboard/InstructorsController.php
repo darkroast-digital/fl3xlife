@@ -31,6 +31,8 @@ class InstructorsController extends Controller
             $featured = '/assets/uploads/instructors/' . $instructor->id . '/featured.jpg';
         }
 
+        $instructor->bio = $this->markdown->text($instructor->bio);
+
         return $this->view->render($response, 'dashboard/instructors/view.twig', compact('instructor', 'featured'));
     }
 
@@ -61,6 +63,7 @@ class InstructorsController extends Controller
         $instructor = Instructor::create([
             'name' => $params['name'],
             'title' => $params['title'],
+            'bio' => $params['bio'],
             'facebook' => $params['facebook'],
             'twitter' => $params['twitter'],
             'instagram' => $params['instagram'],
@@ -113,6 +116,7 @@ class InstructorsController extends Controller
 
         $instructor->name = $params['name'];
         $instructor->title = $params['title'];
+        $instructor->bio = $params['bio'];
         $instructor->facebook = $params['facebook'];
         $instructor->twitter = $params['twitter'];
         $instructor->instagram = $params['instagram'];

@@ -10,6 +10,7 @@ class Instructor extends Model
         'name',
         'avatar',
         'title',
+        'bio',
         'facebook',
         'twitter',
         'instagram',

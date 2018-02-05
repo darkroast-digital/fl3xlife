@@ -15,6 +15,7 @@ class AddHeroSlidesTable extends Migration
             $table->text('description');
             $table->string('link_name');
             $table->string('link');
+            $table->boolean('button_display');
             $table->timestamps();
         });
     }

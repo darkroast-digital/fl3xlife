@@ -321,6 +321,10 @@ body {
                         }
                     }
 
+                    .hide-button {
+                        display:none;
+                    }
+
                     .rule {
                         margin-top:1rem;
                     }
@@ -762,6 +766,9 @@ body {
                     width:100%;
                     height:100%;
                     object-fit:cover;
+                    max-height:258px;
+                    overflow:hidden;
+                    object-position:50% 0%;
                 }
 
                 .details-container {
@@ -953,7 +960,7 @@ body {
 
 
 
-// #SUCCESS STORIES
+// #SUCCESS STORIES/TESTIMONIES
 // =========================================================================
 
 .stories {
@@ -1009,7 +1016,6 @@ body {
 
         .container--full {
             display:flex!important;
-            height:calc(463px - 10rem);
             position:relative;
 
             @media screen and (max-width:90em) {

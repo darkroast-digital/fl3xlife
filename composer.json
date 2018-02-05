@@ -21,7 +21,8 @@
         "illuminate/database": "^5.5",
         "slim/flash": "^0.4.0",
         "cocur/slugify": "^3.0",
-        "respect/validation": "^1.1"
+        "respect/validation": "^1.1",
+        "erusev/parsedown": "^1.6"
     },
     "autoload": {
         "psr-4": {

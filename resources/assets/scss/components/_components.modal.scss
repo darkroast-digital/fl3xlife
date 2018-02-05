@@ -27,4 +27,45 @@
             pointer-events: all;
         }
     }
+
+    .inner {
+        max-height:70vh;
+        overflow:scroll;
+    }
+}
+
+.instructor-modal {
+
+    .inner {
+
+        .content {
+            display:flex;
+            width:100%;
+
+            .img-container {
+                max-width:40%;
+                overflow:hidden;
+
+                img {
+                    width:100%;
+                    height:100%;
+                    object-fit:cover;
+                }
+            }
+
+            .about-instructor {
+                max-width:60%;
+                padding:1rem;
+
+                h2 {
+                    text-align:left;
+                    margin-bottom:0;
+                }
+
+                h3 {
+                    font-weight:600;
+                }
+            }
+        }
+    }
 }

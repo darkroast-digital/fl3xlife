@@ -12,6 +12,7 @@ class AddInstructorsTable extends Migration
             $table->string('name');
             $table->string('avatar');
             $table->string('title');
+            $table->text('bio');
             $table->string('facebook');
             $table->string('twitter');
             $table->string('instagram');

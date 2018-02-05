@@ -1,4 +1,4 @@
-<div class="modal">
+<div class="modal" data-modal="contact">
     <div class="block column-6">
         <div class="inner">
             <p class="close">x</p>
@@ -13,3 +13,32 @@
         </div>
     </div>
 </div>
+
+{% for item in instructors %}
+    <div class="modal instructor-modal" data-modal="{{ item.id }}">
+        <div class="block column-6">
+            <div class="inner">
+                <p class="close">x</p>
+                <div class="content">
+                    <div class="img-container">
+                        <img src="/assets/uploads/instructors/{{ item.id }}/featured.jpg" draggable="false">
+                    </div>
+                    <div class="about-instructor">
+                        <h2>{{ item.name }}</h2>
+                        <h3>{{ item.title }}</h3>
+                        {{ markdown(item.bio)|raw }}
+                        {% if item.facebook != NULL %}
+                            <p>Facebook: <a href="{{ item.facebook }}" target="_blank">{{ item.facebook }}</a></p>
+                        {% endif %}
+                        {% if item.twitter != NULL %}
+                            <p>Twitter: <a href="{{ item.twitter }}" target="_blank">{{ item.twitter }}</a></p>
+                        {% endif %}
+                        {% if item.instagram != NULL %}
+                            <p>Instagram: <a href="{{ item.instagram }}" target="_blank">{{ item.instagram }}</a></p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}

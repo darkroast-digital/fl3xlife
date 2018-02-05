@@ -108,13 +108,13 @@ $('.off-canvas button').on('click', function () {
 var modalTrigger = $('.modal__trigger');
 var modal = $('.modal');
 
-if (modalTrigger) {
-    modalTrigger.on('click', function () {
-        modal.addClass('is--open');
-        overlay.addClass('is--active');
-        $('body').css('overflow', 'hidden');
-    });
-}
+modalTrigger.click(function(){
+    var thisModal = $(this).data('modal');
+    var modal = $(`.modal[data-modal="${ thisModal }"]`);
+    modal.addClass('is--open');
+    $('.overlay').addClass('is--active');
+    $('body').css('overflow', 'hidden');
+});
 
 $(".close").on("click", function() {
     $(".modal").removeClass('is--open');
@@ -370,3 +370,37 @@ $('.image-upload input').change(function() {
 // =========================================================================
 
 $('.alert').delay(6000).fadeOut("slow");
+
+
+
+
+// #HIDE HERO BUTTON
+// =========================================================================
+
+$('#buttonDisplay').change(function(){
+    if ($(this).prop('checked') == true) {
+        $('.button-options').addClass('hidden-option');
+        $('.button-options').prop('disabled', true);
+    } else {
+        $('.button-options').removeClass('hidden-option');
+        $('.button-options').prop('disabled', false);
+    }
+})
+
+
+
+
+// #SIMPLE MDE
+// =========================================================================
+
+var mde = document.getElementById('mde')
+
+if (mde) {
+    var simplemde = new SimpleMDE({ 
+        element: mde,
+        hideIcons: [
+            'fullscreen',
+            'side-by-side'
+        ]
+    });
+}

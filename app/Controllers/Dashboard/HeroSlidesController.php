@@ -62,11 +62,22 @@ class HeroSlidesController extends Controller
         $slide = HeroSlide::where('id', $args['slug'])->first();
         $id = $slide->id;
 
+        $buttonDisplay = '';
+
+        if (isset($params['buttonDisplay'])) {
+            $buttonDisplay = 'hide-button';
+        }
+
         $slide->heading = $params['heading'];
         $slide->subtitle = $params['subtitle'];
         $slide->description = $params['description'];
-        $slide->link_name = $params['link_name'];
-        $slide->link = $params['link'];
+        if (isset($params['link_name'])) {
+            $slide->link_name = $params['link_name'];
+        }
+        if (isset($params['link'])) {
+            $slide->link = $params['link'];
+        }
+        $slide->button_display = $buttonDisplay;
 
         $slide->save();
 

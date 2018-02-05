@@ -30,6 +30,12 @@
                 </div>
 
                 <div class="detail">
+                    <h3>Biography:</h3>
+                    {{ instructor.bio|raw }}
+                    <br/>
+                </div>
+
+                <div class="detail">
                     <h3>Facebook:</h3>
                     <p><a href="{{ instructor.facebook }}" target="_blank">{{ instructor.facebook }}</a></p>
                 </div>

@@ -295,6 +295,10 @@ class ComposerStaticInit47bb41ffd3cbed6b0ddc94de61448a82
             array (
                 0 => __DIR__ . '/..' . '/pimple/pimple/src',
             ),
+            'Parsedown' => 
+            array (
+                0 => __DIR__ . '/..' . '/erusev/parsedown',
+            ),
         ),
         'M' => 
         array (

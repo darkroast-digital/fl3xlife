@@ -380,6 +380,21 @@
 
                     .field {
 
+                        &.buttonDisplay {
+                            display:flex;
+                            width:100%;
+
+                            input {
+                                width:auto;
+                                margin-right:.5rem
+                            }
+                        }
+
+                        .hidden-option {
+                            background-color:$grey-light;
+                            color:$grey;
+                        }
+
                         input {
                             margin-top:.25rem;
 

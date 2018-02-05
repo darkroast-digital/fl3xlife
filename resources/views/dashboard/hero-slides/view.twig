@@ -43,6 +43,11 @@
                     <h3>Link:</h3>
                     <p>{{ slide.link }}</p>
                 </div>
+
+                <div class="detail">
+                    <h3>Button Display:</h3>
+                    <p>{% if slide.button_display == "hide-button" %}Hidden{% else %}Visible{% endif %}</p>
+                </div>
             </div>
         </div>
 
@@ -55,7 +60,7 @@
                 <h1>{{ slide.heading }}</h1>
                 <h2>{{ slide.subtitle }}</h2>
                 <p>{{ slide.description }}</p>
-                <a href="{{ slide.link }}" class="button" target="_blank">{{ slide.link_name }}</a>
+                <a href="{{ slide.link }}" class="button" target="_blank" {% if slide.button_display == "hide-button" %}style="display:none;"{% endif %}>{{ slide.link_name }}</a>
                 <img src="/assets/img/hr-center.png" draggable="false" class="rule">
             </div>
         </div>

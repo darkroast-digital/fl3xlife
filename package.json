@@ -22,6 +22,7 @@
     "autoprefixer": "^7.1.1",
     "concurrently": "^3.4.0",
     "instafeed.js": "^1.4.1",
+    "simplemde": "^1.11.2",
     "slick-carousel": "^1.8.1"
   }
 }

@@ -49,10 +49,10 @@
     {% include 'partials/admin-off-canvas.twig' %}
     {% include 'partials/flash.twig' %}
     {% block loader %}{% endblock %}
+    {% include 'partials/modal.twig' %}
     <div class="{% block pageclass %}{% endblock %}" id="app">
         <div class="content">
             {% include 'partials/overlay.twig' %}
-            {% include 'partials/modal.twig' %}
             {% block content %}{% endblock %}
         </div>
     </div>

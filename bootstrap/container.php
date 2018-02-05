@@ -80,6 +80,16 @@ $container['mail'] = function($container) {
 
 
 
+// #MARKDOWN
+// =========================================================================
+
+$container['markdown'] = function ($container) {
+    return new Parsedown();
+};
+
+
+
+
 // #SLUGIFY
 // =========================================================================
 
@@ -110,3 +120,19 @@ $container['notFoundHandler'] = function ($container) {
         return $container['view']->render($response->withStatus(404), 'errors/404.twig');
     };
 };
+
+
+
+
+// #RENDER AS MARKDOWN
+// =========================================================================
+
+$twig = $container->view->getEnvironment();
+
+$markdown = new Twig_SimpleFunction('markdown', function ($md) {
+    $markdown = new Parsedown();
+
+    return $markdown->text($md);
+});
+
+$twig->addFunction($markdown);
