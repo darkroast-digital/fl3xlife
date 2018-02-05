@@ -42,9 +42,19 @@
             display:flex;
             width:100%;
 
+            @media screen and (max-width:64rem) {
+                flex-direction:column;
+            }
+
             .img-container {
                 max-width:40%;
                 overflow:hidden;
+
+                @media screen and (max-width:64rem) {
+                    max-width:100%;
+                    margin-top:1rem;
+                    max-height:300px;
+                }
 
                 img {
                     width:100%;
@@ -56,6 +66,10 @@
             .about-instructor {
                 max-width:60%;
                 padding:1rem;
+
+                @media screen and (max-width:64rem) {
+                    max-width:100%;
+                }
 
                 h2 {
                     text-align:left;
