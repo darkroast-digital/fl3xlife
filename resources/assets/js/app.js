@@ -313,15 +313,15 @@ $('.slick-next').html("<i class=\"fa fa-angle-right\"></i>");
 
 var userFeed = new Instafeed({
   get: 'user',
-  userId: '3627696401',
-  accessToken: '3627696401.1677ed0.9d11b86409244730b3a34531ef97a9fd',
+  userId: '6658374205',
+  accessToken: '6658374205.c31c536.f8dc966c41004a10bbce7df3e4e81a44',
   resolution: 'standard_resolution',
   limit: 6,
   sort: 'most-recent',
   template: '<a href="{{link}}" target="_blank"><img src="{{image}}" /></a>',
 });
 
-// userFeed.run();
+userFeed.run();
 
 
 
