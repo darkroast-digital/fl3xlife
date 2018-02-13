@@ -261,10 +261,11 @@ $('.trainer__container').slick({
     draggable:false,
     responsive: [
         {
-          breakpoint: 1024,
+          breakpoint: 1025,
           settings: {
             slidesToShow: 3,
-            slidesToScroll: 3
+            slidesToScroll: 3,
+            draggable:true
           }
         },
         {
@@ -275,7 +276,7 @@ $('.trainer__container').slick({
           }
         },
         {
-          breakpoint: 481,
+          breakpoint: 513,
           settings: {
             slidesToShow: 1,
             slidesToScroll: 1
@@ -337,6 +338,10 @@ $('a[href^="#"]').on('click', function(event) {
             scrollTop: target.offset().top
         }, 1000);
     }
+});
+
+$('.go-back').on('click', function() {
+    window.history.back();
 });
 
 

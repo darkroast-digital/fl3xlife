@@ -22,6 +22,13 @@ class HomeController extends Controller
         return $this->view->render($response, 'home.twig', compact('slides', 'instructors', 'testimonies', 'schedules'));
     }
 
+    public function trainer($request, $response, $args)
+    {
+        $trainer = Instructor::where('id', $args['id'])->first();
+
+        return $this->view->render($response, 'trainer.twig', compact('trainer'));
+    }
+
     public function post($request, $response, $args)
     {
         $mail = new PHPMailer;

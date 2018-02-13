@@ -1,6 +1,5 @@
 {% extends 'layouts/app.twig' %}
 {% block title %}Home{% endblock %}
-{% block description %}{% endblock %}
 {% block pageclass %}home{% endblock %}
 
 {% block loader %}
@@ -11,11 +10,7 @@
 
 {% block content %}
     
-<header class="header">
-    <div class="header__container container">
-        {% include 'partials/nav.twig' %}
-    </div>
-</header>
+{% include 'partials/header.twig' %}
 
 <section class="hero">
     <div class="hero__container container">
@@ -61,7 +56,7 @@
             <p><span>FL3X Fitness Aims to Pump You Up!</span></p>
             <p>Carlos Puckerin and Chris Brookbanks, who have each lost 100lbs, launched FL3X Fitness at 10700 Tecumseh Road East. We understand how difficult it can be to make a huge weight loss and fitness commitment, so we’re doing our best to make it easier for our members. We also provide nutritional and diet information, so our members can make a commitment to eating healthy meal. We’ve created a strong membership experience for all of our members, no matter what your fitness level and goals are when you first walk through the doors. The club features a cardio are upfront, facing Tecumseh Road and a large weight room in the rear of the building.</p>
         </div>
-        <iframe src="https://player.vimeo.com/video/249853891" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        <iframe src="https://player.vimeo.com/video/245256602?title=0&byline=0&portrait=0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
     </div>
 </section>
 
@@ -142,10 +137,10 @@
     <div class="instructors__container container">
         <h2>Our Instructors</h2>
         <img src="/assets/img/hr-center.png" draggable="false" class="rule">
-        <p class="byline">Our instructors are experienced and certified in many aspects of health and fitness. From weight loss journeys of over 100lbs, to weight gain, our trainers have experienced it for themselves and have all gone through a transformation. Check out each trainer's individual profile by clicking on the pictures below.</p>
+        <p class="byline">Our instructors are experienced and certified in many aspects of health and fitness. From weight loss journeys of over 100lbs, to weight gain, our trainers have experienced it for themselves and have all gone through a transformation. Check out each trainer's individual profile by clicking on the buttons below.</p>
         <div class="trainer__container container--full">
             {% for instructor in instructors %}
-                <div class="trainer column-3 modal__trigger" data-modal="{{ instructor.id }}">
+                <div class="trainer column-3">
                     <div class="img-container">
                         <img src="/assets/uploads/instructors/{{ instructor.id }}/featured.jpg" draggable="false">
                     </div>
@@ -163,6 +158,7 @@
                                 <a href="{{ instructor.instagram }}" target="_blank"><i class="fa fa-instagram"></i></a>
                             {% endif %}
                         </div>
+                        <a class="button" href="{{ path_for('trainerBio', { 'id': instructor.id }) }}">Full Bio</a>
                     </div>
                 </div>
             {% endfor %}
@@ -255,43 +251,6 @@
     </div>
 </section>
 
-<footer class="footer">
-    <div class="footer__container container">
-        <div class="top container--full">
-            <div class="column-3 about-socials">
-                <div class="text">
-                    <h3>About FL3X Fitness</h3>
-                    <p>We understand how difficult it can be to make a huge weight loss and fitness commitment, so we’re doing our best to make it easier for our members. We also provide nutritional and diet information so our members can make a commitment to eating healthy meal.</p>
-                </div>
-                <div class="socials">
-                    <a href="https://twitter.com/mr_c3o_" target="_blank"><i class="fa fa-twitter"></i></a>
-                    <a href="" target="_blank"><i class="fa fa-facebook"></i></a>
-                    <a href="https://instagram.com/Mr_C3O" target="_blank"><i class="fa fa-instagram"></i></a>
-                </div>
-            </div>
-            <div class="column-3 hours">
-                <h3>Gym Hours</h3>
-                <p>Monday to Friday: 5am - 10pm<br/>
-                    Saturday to Sunday: 7am - 7pm</p>
-                <p><em>Closed on public holidays</em></p>
-            </div>
-            <div class="column-3 instagram">
-                <h3>Instagram Gallery</h3>
-                <div id="instafeed"></div>
-            </div>
-            <div class="column-3 contact">
-                <h3>Contact Us</h3>
-                <p>Email: <a href="mailto:fl3xlifefitness@gmail.com">fl3xlifefitness@gmail.com</a></p>
-                <p>Phone: 519.979.6622</p>
-                <p>Address: 10700 Tecumseh Rd East, Windsor, ON</p>
-                <button class="modal__trigger button" data-modal="contact">Send an email</button>
-            </div>
-        </div>
-
-        <div class="bottom">
-            <p>&copy; <span>FL3X FITNESS</span> 2017. All Rights Reserved. Designed by DarkRoast Digital.</p>
-        </div>
-    </div>
-</footer>
+{% include 'partials/footer.twig' %}
     
 {% endblock %}

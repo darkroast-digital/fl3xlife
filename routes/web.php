@@ -27,6 +27,7 @@ use App\Controllers\HomeController;
 $app->get('/', HomeController::class . ':index')->setName("home");
 $app->post('/', HomeController::class . ':post');
 $app->get('/404', ErrorsController::class . ':error404')->setName("error404");
+$app->get('/trainer/{id}', HomeController::class . ':trainer')->setName('trainerBio');
 
 
 

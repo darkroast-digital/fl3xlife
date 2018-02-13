@@ -1,0 +1,57 @@
+{% extends 'layouts/app.twig' %}
+{% block title %}{{ trainer.name }}{% endblock %}
+{% block pageclass %}trainer-page{% endblock %}
+
+{% block loader %}
+    <div class="loading-page is--loading">
+        <div class="loader">Loading...</div>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+<header class="header">
+    <div class="header__container container">
+        <nav class="nav">
+            <div class="nav__container container--full">
+                <div class="logo-wrapper">
+                    <a href="{{ path_for('home') }}" class="nav__brand"><img src="/assets/img/logo.png" alt="FL3X-LIFE.com" draggable="false"></a>
+                </div>
+                <p class="trainer-name">{{ trainer.name }}</p>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<section class="trainer-bio">
+    <div class="trainer-bio__container container">
+        <div class="column-12">
+            <button type="button" class="go-back">Go back</button>
+        </div>
+        <div class="column-4">
+            <img src="/assets/uploads/instructors/{{ trainer.id }}/featured.jpg" draggable="false">
+        </div>
+        <div class="column-8">
+            <div class="about-instructor">
+                <h2>{{ trainer.name }}</h2>
+                <h3>{{ trainer.title }}</h3>
+                <img src="/assets/img/hr-left.png" draggable="false" class="rule">
+                {{ markdown(trainer.bio)|raw }}
+                {% if trainer.facebook != NULL %}
+                    <p>Facebook: <a href="{{ trainer.facebook }}" target="_blank">{{ trainer.facebook }}</a></p>
+                {% endif %}
+                {% if trainer.twitter != NULL %}
+                    <p>Twitter: <a href="{{ trainer.twitter }}" target="_blank">{{ trainer.twitter }}</a></p>
+                {% endif %}
+                {% if trainer.instagram != NULL %}
+                    <p>Instagram: <a href="{{ trainer.instagram }}" target="_blank">{{ trainer.instagram }}</a></p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+{% include 'partials/footer.twig' %}
+
+
+{% endblock %}

@@ -13,7 +13,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: z(higher);
+    z-index: 100;
     pointer-events: none;
     visibility: hidden;
     opacity: 0;
@@ -34,38 +34,3 @@
     }
 }
 
-.instructor-modal {
-
-    .inner {
-
-        .content {
-            width:100%;
-
-            img {
-                max-width:300px;
-                height:auto;
-                float:left;
-                margin-right:1rem;
-                margin-bottom:.25rem;
-                padding-right:1rem;
-            }
-
-            .about-instructor {
-                padding:1rem;
-
-                @media screen and (max-width:64rem) {
-                    max-width:100%;
-                }
-
-                h2 {
-                    text-align:left;
-                    margin-bottom:0;
-                }
-
-                h3 {
-                    font-weight:600;
-                }
-            }
-        }
-    }
-}
