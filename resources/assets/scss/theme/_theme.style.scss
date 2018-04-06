@@ -164,6 +164,11 @@ body {
             height:auto;
             overflow-y:hidden;
 
+            .slick-track {
+                display:flex;
+                align-items:center;
+            }
+
             .slide {
                 width:100%;
                 display:flex!important;
@@ -187,7 +192,7 @@ body {
                     img {
                         height:100%;
                         width:100%;
-                        object-fit:cover;
+                        object-fit:contain;
                     }
                 }
 
@@ -198,6 +203,7 @@ body {
                     flex-direction:column;
                     justify-content:center;
                     max-width:30%;
+                    padding:3rem 0;
 
                     @media screen and (max-width:90em) {
                         max-width:40%;

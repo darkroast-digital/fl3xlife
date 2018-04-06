@@ -203,7 +203,7 @@
                         img {
                             height:100%;
                             width:100%;
-                            object-fit:cover;
+                            object-fit:contain;
                         }
                     }
 
@@ -214,6 +214,7 @@
                         flex-direction:column;
                         justify-content:center;
                         max-width:30%;
+                        padding:3rem 0;
 
                         @media screen and (max-width:90em) {
                             max-width:40%;
